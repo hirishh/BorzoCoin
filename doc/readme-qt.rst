@@ -50,7 +50,9 @@ Windows build instructions:
 Mac OS X
 --------
 
-- Download and install the `Qt Mac OS X SDK`_. It is recommended to also install Apple's Xcode with UNIX tools.
+- Install Apple's Xcode with Command Line tools.
+
+- Download and install `QT Creator`_.
 
 - Download and install `MacPorts`_.
 
@@ -58,13 +60,30 @@ Mac OS X
 
 ::
 
-	sudo port selfupdate
-	sudo port install boost db48 miniupnpc
+    sudo port selfupdate
+    sudo port install -s boost db48 miniupnpc configure.cxx_stdlib="libstdc++"
+    sudo port install qt4-mac qrencode protobuf-cpp
 
-- Open the .pro file in Qt Creator and build as normal (cmd-B)
+- Open the .pro file in Qt Creator, select Release at the bottom and build as normal (cmd-B)
 
-.. _`Qt Mac OS X SDK`: http://qt.nokia.com/downloads/sdk-mac-os-cpp
+- Wait for the build to finish (obviously :)
+
+- Git clone `macdylibbundler`_, then from the folder you've cloned it into execute the following commands:
+
+::
+
+    make && sudo make install
+
+- Go into the folder where the .app is (usually right next to the source folder) and execute:
+
+::
+
+    dylibbundler -od -b -x ./BorzoCoin-Qt.app/Contents/MacOS/BorzoCoin-Qt -d ./BorzoCoin-Qt.app/Contents/libs
+    macdeployqt BorzoCoin-Qt.app -dmg
+
+.. _`Qt Creator`: http://download.qt-project.org/official_releases/qtcreator/3.1/3.1.2/qt-creator-opensource-mac-x86_64-3.1.2.dmg
 .. _`MacPorts`: http://www.macports.org/install.php
+.. _`macdylibbundler`: https://github.com/auriamg/macdylibbundler
 
 
 Build configuration options
