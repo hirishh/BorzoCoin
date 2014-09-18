@@ -36,10 +36,10 @@ QString BitcoinUnits::name(int unit)
 {
     switch(unit)
     {
-	case GBTC: return QString("Million-BORZI");
-	case MBTC: return QString("Mega-MBORZI");
+	case GBTC: return QString("Borzilioni");
+	case MBTC: return QString("MegaBorzi");
     case BTC: return QString("BORZI");
-    case mBTC: return QString("mBORZI");
+    case mBTC: return QString("Milliborzi");
     default: return QString("???");
     }
 }
@@ -48,10 +48,10 @@ QString BitcoinUnits::description(int unit)
 {
     switch(unit)
     {
-	case GBTC: return QString("Million-BORZI  (1 * 1,000,000)");
-	case MBTC: return QString("Mega-MBORZI  (1 * 1,000)");
-    case BTC: return QString("BorzoCoins");
-    case mBTC: return QString("Milli-BorzoCoins (1 / 1,000)");
+	case GBTC: return QString("Borzilioni  (1 * 1,000,000)");
+	case MBTC: return QString("MegaBorzi  (1 * 1,000)");
+    case BTC: return QString("BORZI");
+    case mBTC: return QString("Milliborzi (1 / 1,000)");
     default: return QString("???");
     }
 }
